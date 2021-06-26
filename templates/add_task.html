@@ -5,6 +5,18 @@
 
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="">
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					<select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="category_name">Note Category</label>
+				</div>
+			</div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -18,7 +30,7 @@
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="task_description" name="task_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="task_description">Note Description</label>
+                    <label for="task_description">Description</label>
                 </div>
             </div>
             <div class="row">
@@ -28,7 +40,14 @@
                     <label for="due_date">Due Date</label>
                 </div>
             </div>
-			
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="created_by" name="created_by" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="created_by">Created by</label>
+                </div>
+            </div>
         </form>
     </div>
 
