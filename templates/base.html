@@ -10,20 +10,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>To Do Manager</title>
+    <title>Jot It Down</title>
 </head>
 <body>
     <header>
         <!-- top navbar -->
 		<nav class="nav-extended text-shadow light-blue darken-1">
 			<div class="nav-wrapper">
-				<a href="{{ url_for('get_tasks') }}" class="brand-logo">To Do Manager</a>
+				<a href="{{ url_for('get_tasks') }}" class="brand-logo">Jot It Down</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('get_tasks') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="#">New Task</a></li>
+                        <li><a href="{{ url_for('add_task') }}">New Note</a></li>
                         <li><a href="#">Manage Categories</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -36,11 +36,11 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">Task Manager</h4></li>
+            <li><h4 class="center-align light-blue-text text-darken 4">Jot It Down</h4></li>
             <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="#">New Task</a></li>
+                <li><a href="{{ url_for('add_task') }}">New Note</a></li>
                 <li><a href="#">Manage Categories</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
