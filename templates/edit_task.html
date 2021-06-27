@@ -4,14 +4,18 @@
     <h3 class="light-blue-text text-darken-4 center-align">Edit Note</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
 			<div class="row">
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
 					<select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
+                        {% if category.category_name == task.category_name %}
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
 					<label for="category_name">Category</label>
@@ -21,7 +25,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                     <input id="task_name" name="task_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
+                    value="{{ task.task_name }}" type="text" class="validate" required>
                     <label for="task_name">Note Name</label>
                 </div>
             </div>
@@ -29,14 +33,17 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="task_description" name="task_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="200" class="materialize-textarea validate" required>
+                        {{- task.task_description -}}
+                    </textarea>
                     <label for="task_description">Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <input id="due_date" name="due_date" type="text" 
+                    value="{{ task.due_date }}" class="datepicker validate" required>
                     <label for="due_date">Due Date</label>
                 </div>
             </div>
@@ -50,6 +57,10 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
+                    <!-- cancel button -->
+                    <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
                     <button type="submit" class="btn-large light-blue darken-1 text-shadow">
                         Edit Note <i class="fas fa-edit right"></i>
                     </button>
