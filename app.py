@@ -116,6 +116,7 @@ def add_task():
             "task_name": request.form.get("task_name"),
             "task_description": request.form.get("task_description"),
             "due_date": request.form.get("due_date"),
+            "is_urgent": is_urgent,
             "created_by": session["user"]
         }
         mongo.db.tasks.insert_one(task)
@@ -134,8 +135,8 @@ def edit_task(task_id):
             "category_name": request.form.get("category_name"),
             "task_name": request.form.get("task_name"),
             "task_description": request.form.get("task_description"),
-            "is_urgent": is_urgent,
             "due_date": request.form.get("due_date"),
+            "is_urgent": is_urgent,
             "created_by": session["user"]
         }
         mongo.db.tasks.update({"_id": ObjectId(task_id)}, submit)
@@ -191,6 +192,21 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+@ app.errorhandler(403)
+def not_found(error):
+    return render_template('403.html'), 403
+
+
+@ app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+
+@ app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'), 500
 
 
 if __name__ == "__main__":
