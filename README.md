@@ -1,9 +1,10 @@
 # In Your Palm
 
-In Your Palm is a website to write notes, tasks even a schedule as you need it and on the go.
+In Your Palm is a website to write notes, tasks even a schedule as you need it.
 In this website it is based off the backend for the data but also allows users too add to it.
 
-![Am I Responsive](images/In_your_palm.png)
+![Am I Responsive](images/In_your_palm.PNG)
+
 ![Live Site](https://todo-app-ms3.herokuapp.com/)
 
 # Index
@@ -76,17 +77,19 @@ This website has a number of pages which include Home, Log in, log out, register
 
 #### Libraries
 
-[Flask](https://pypi.org/project/Flask/)
-[Materialize](materializecss.com/)
-[Jquery](https://jquery.com/)
+- [Flask](https://pypi.org/project/Flask/)
+
+- [Materialize](materializecss.com/)
+
+- [Jquery](https://jquery.com/)
 
 
 #### Tools and Platform
 
-[Git](https://git-scm.com/)
-[GitHub](https://github.com/)
-[MongoDB](https://www.mongodb.com/)
-[Heroku](https://www.heroku.com/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Heroku](https://www.heroku.com/)
 
 
 ## Testing
@@ -158,19 +161,19 @@ Deployment
  - Create the required files in the repository
  
    - requirements.txt
-    - To create `` pip3 freeze > requirements.txt `` in the root directory
+    - To create ` pip3 freeze > requirements.txt ` in the root directory
   
    - Procfile 
     - To create  `echo web: python3 app.py > Procfile` in the root directory
 
 In heroku dashboard
 
- - select `app`
- - select `Deploy` from the menu
- - connect app to github
- - select `user`
- - add repo name and search
- - click `connect`
+ - Select App
+ - Select Deploy from the menu
+ - Connect app to github
+ - Select User
+ - Add repo name and search
+ - Click Connect
 
 ## Credits
 
