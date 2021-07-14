@@ -4,7 +4,7 @@ In Your Palm is a website to write notes, tasks even a schedule as you need it a
 In this website it is based off the backend for the data but also allows users too add to it.
 
 ![Am I Responsive](images/In_your_palm.png)
-[Live Site](https://todo-app-ms3.herokuapp.com/)
+![Live Site](https://todo-app-ms3.herokuapp.com/)
 
 # Index
 
@@ -100,3 +100,92 @@ This website has a number of pages which include Home, Log in, log out, register
 
 
 
+### User Testing
+
+-  Attemped to login with incorrect details - error message displays
+-  Register on the website - displays correct information
+-  Tested adding, editing and deleting notes - successfully working
+-  Tested blank information on pages - all error messages show
+
+
+## Deployment
+
+This site uses MongoDB and the data storage and Heroku as hosting site.
+
+#### Connecting to MongoDB
+
+`mongo "mongodb<url connection string>" ` 
+
+- On your mongoDB project page click on databases in the deployment tab.
+- Click connect button on the cluster and connect using 'connect your application'
+- Select driver and version and copy the connection string from here and add it to the app.py file.
+
+#### Create Collection
+
+In MongoDB CLI type:
+
+ `db.<collection>.insert(<document>)`
+ 
+#### Adding Index
+ 
+ In MongoDB CLI type:
+ 
+ `db.<collection>.createIndex({<fields>:<type>}{<options>})`
+ 
+
+### Platform
+
+This site is deployed to Heroku: 
+ https://todo-app-ms3.herokuapp.com/
+
+
+#### Create Heroku App
+
+- On your dashboard in heroku click on the 'new button' top right side.
+- Once clicked dropdown will open click on ' create new app' 
+- Enter app name and region and click create app
+
+Setting Enviroment variables
+
+- In heroku dashboard:
+ - Select app you just made and go to settings
+ - Go down until you see Config Vars click 'reveal config vars'
+ - Add enviroment variables in the key value pairs 
+ - Click 'Add' to add each key
+
+Deployment
+
+ - Create the required files in the repository
+ 
+   - requirements.txt
+    - To create `` pip3 freeze > requirements.txt `` in the root directory
+  
+   - Procfile 
+    - To create  `echo web: python3 app.py > Procfile` in the root directory
+
+In heroku dashboard
+
+ - select `app`
+ - select `Deploy` from the menu
+ - connect app to github
+ - select `user`
+ - add repo name and search
+ - click `connect`
+
+## Credits
+
+Structure and content based heavily on:
+
+  - [Code Institute Solutions - README Template](https://github.com/Code-Institute-Solutions/readme-template)
+  - Mini project 
+    - [Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) - heavily based on this project.
+    
+  - [W3 Schools](https://www.w3schools.com/) various resources
+  - [youtube](https://youtu.be/xjHEcmjlD-Y) Pretty Printed - ideas and code 
+  - [youtube](https://youtu.be/yKHJsLUENl0) Python Engineer - ideas and code 
+
+### Acknowledgements
+
+* [W3 Schools](https://www.w3schools.com/)  Various resources
+* [GitHub](https://github.com/March-Hackathon-Team-27/Hackathon-Project-canRename-)  README template
+* [Code institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) 
